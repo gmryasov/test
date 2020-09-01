@@ -1,0 +1,40 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<body>
+
+	<div th:if="${message}">
+		<h2 th:text="${message}"/>
+	</div>
+
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="/">
+			<table>
+				<tr><td>Загрузить файл:</td><td><input type="file" name="file" /></td></tr>
+				<tr><td></td><td><input type="submit" value="Загрузить" /></td></tr>
+			</table>
+		</form>
+	</div>
+
+	<div>
+		<h3 th:text="Файлы "/>
+		<ul>
+			<li th:each="file : ${files} ">
+				<a th:href="${file}"  th:text="${file}" />
+			</li>
+		</ul>
+		<h3 th:text="Заголовки "/>
+		<ul>
+			<li>
+			<h4 th:each="data : ${datas}" th:text="${data}"/>
+			</li>
+		</ul>
+		<br>
+		<h3 th:text="Текст "/>
+		<ul>
+			<li>
+			<h6 th:each="content : ${contents}" th:text="${content}"/>
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>
